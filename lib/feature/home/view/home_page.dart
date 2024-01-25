@@ -19,6 +19,10 @@ class HomePage extends StatelessWidget {
             return ListTile(
               title: Text(todo.title),
               subtitle: Text(todo.description),
+              leading: Checkbox(
+                value: todo.isCompleted,
+                onChanged: (value) => controller.toggleTodoStatus(todo.id),
+              ),
               trailing: IconButton(
                 onPressed: () => controller.removeTodoByID(todo.id),
                 icon: const Icon(Icons.delete),

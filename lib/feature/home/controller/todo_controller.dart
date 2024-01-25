@@ -22,4 +22,10 @@ class ToDoController extends BaseController {
     todos.removeWhere((todo) => todo.id == id);
     notifyListeners();
   }
+
+  void toggleTodoStatus(String id) {
+    final todo = todos.singleWhere((todo) => todo.id == id);
+    todo.toggleCompleted();
+    notifyListeners();
+  }
 }
